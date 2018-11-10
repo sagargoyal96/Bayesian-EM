@@ -1,0 +1,35 @@
+
+Report
+
+AI – Bayes Network
+Assignment 1
+Sagar Goyal
+2015CS10253
+
+
+Method used:
+•The basic idea used to evaluate the CPT tables is Expectation Maximisation.
+•First all the examples are iterated through assuming the question marks to be any random values. These examples are counted and a counter is updated. After the iteration is complete they counts are divided by the number of possible cases that could have happened for each variable so that the net probability remains 1.
+•After this more iterations are conducted wherein the CPT table is calculated using the older CPT table (used to find probabilities of the elements in the Markov blanket of each variable). For this each unknown value in each example is replaced by all possible values and the respective probabilities are added in the counter. In the end the sum is always 1. Then again the CPT table is divided by the sum of all possible values.
+
+
+Implementation:
+
+•Instead of lists, vectors are used to avoid unnecessary iterations of list. 
+•All the data in the beginning itself is converted to integers to avoid overhead of string comparisons, using the enumeration of the possible values as the numbers put in. 
+•The index in CPT table to be updated is calculated using jumps to make it faster.
+•Instead of iterating through all the entries in data sample the previous CPT values are stored, and only the entries changed are updated. 
+•Instead of storing probability, respective counts are stored. Smoothing is done by initializing counts with 0.0001 to avoid zero probability.
+
+Stopping Criterion:
+
+Although algorithm converged in just 4 iterations on the sample data given, since it was given we could use 10 minutes, I used time based (400 seconds) stopping criterion. Values usually do not change after some time and score gets fixed.
+
+Discussed with:
+
+I discussed this assignment with the following friends: Rahul Agarwal, Saket Dingliwal. 
+
+
+
+
+
